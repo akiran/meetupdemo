@@ -10,7 +10,7 @@ var App = React.createClass({
     return (
       <div>
         <Header />
-        <div className='content'>
+        <div className='container'>
           <Sidebar />
           <Feed />
         </div>

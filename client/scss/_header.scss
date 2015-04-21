@@ -1,9 +1,12 @@
 .header {
+  background: $primary-color;
+  color: white;
+  padding: 0.75em;
+  box-shadow: 0 2px 2px -2px #777;
   @include center();
   .title {
     font-weight: 700;
-  }
-  .nav {
-    
+    margin-left: 1em;
+    font-size: 1.2em;
   }
 }

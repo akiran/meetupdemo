@@ -3,15 +3,12 @@
 @import "./colors";
 @import "./typography";
 @import "./header";
+@import "./sidebar";
+@import "./feed";
 
-.content {
+.container {
   @include center();
 }
 
-.sidebar {
-  @include column(1/3);
-}
 
-.feed {
-  @include column(2/3);
-}
+

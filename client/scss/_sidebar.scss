@@ -1,0 +1,15 @@
+.sidebar {
+  @include column(1/4);
+  background: $secondary-color;
+  .nav {
+    ul {
+      list-style-type: none;
+      li {
+        a {
+          color: $text-color;
+        }
+      }
+    }
+
+  }
+}
