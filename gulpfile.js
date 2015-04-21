@@ -21,14 +21,14 @@ gulp.task('copy', function () {
 });
 
 gulp.task('sass', function () {
-  return  gulp.src(['client/**/*.{scss,sass}'])
+  return  gulp.src(['client/scss/**/*.{scss,sass}'])
               .pipe(sass({ includePaths : ['bower_components', 'node_modules'], errLogToConsole: true}))
               .pipe(autoprefixer({
                 browsers: ['last 2 versions', 'ie 10']
               }))
               .pipe(argv.minify ? minifyCSS(): gutil.noop()) 
               .pipe(argv.gzip ? gzip({ append: false }): gutil.noop()) 
-              .pipe(gulp.dest('build'));
+              .pipe(gulp.dest('build/css'));
 });
 
 gulp.task("js", function(callback) {

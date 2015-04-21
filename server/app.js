@@ -10,6 +10,7 @@ var webpack = require('webpack');
 var webpackMiddleware = require('webpack-dev-middleware');
 var app = express();
 var env = process.env.NODE_ENV || 'development';
+var path = require('path')
 
 mongoose.connect(settings.db.url);
 
@@ -21,8 +22,9 @@ app.use(bodyParser.urlencoded({extended: true}));
 app.use(methodOverride());
 
 if (env === 'development') {
+  console.log(path.join(__dirname, 'build'));
   app.use(logger('combined'));
-  app.use('/css', express.static(__dirname + '/build/css'));
+  app.use('/', express.static(path.join(__dirname, '../build')));
   app.set('staticUrl', '');
   app.use(webpackMiddleware(webpack(require('../webpack.config.js')), {
     publicPath: "/js/",
@@ -34,7 +36,7 @@ if (env === 'production') {
 }
 
 
-app.get('/*', function (req, res) {
+app.get('/', function (req, res) {
   res.render('app');
 });
 

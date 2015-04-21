@@ -1,6 +1,7 @@
 extends base
+block extra-css
+  link(rel="stylesheet", href="#{settings.staticUrl}/css/app.css")
 block content
   #rapp 
-  p Express ok  
 block extra-js
   script(src="#{settings.staticUrl}/js/app.js")
