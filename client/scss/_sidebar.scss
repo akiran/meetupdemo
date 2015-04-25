@@ -1,6 +1,8 @@
 .sidebar {
   @include column(1/4);
   background: $secondary-color;
+  height: 100vh;
+
   .nav {
     ul {
       list-style-type: none;
@@ -10,6 +12,5 @@
         }
       }
     }
-
   }
 }

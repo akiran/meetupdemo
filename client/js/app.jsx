@@ -1,17 +1,18 @@
 var React = require('react');
-var Router = require('react-router');
-var Route = Router.Route;
+var Reflux = require('reflux');
 var Header = require('./components/Header');
 var Sidebar = require('./components/Sidebar');
 var Feed = require('./components/Feed');
+var Store = require('./store');
 
 var App = React.createClass({
+  mixins: [Reflux.connect(Store)],
   render: function () {
     return (
       <div>
         <Header />
         <div className='container'>
-          <Sidebar />
+          <Sidebar categories={this.state.categories}/>
           <Feed />
         </div>
       </div>
@@ -19,13 +20,5 @@ var App = React.createClass({
   }
 });
 
-
-var routes = (
-  <Route path="/" name='app' handler={App}>
-  </Route>
-);
-
-Router.run(routes, Router.HistoryLocation, function (Handler) {
-  React.render(<Handler/>, document.getElementById('rapp'));
-});
+React.render(<App/>, document.getElementById('rapp'));
 
