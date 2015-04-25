@@ -25,6 +25,10 @@ var Store = Reflux.createStore({
     this.subreddits.push(subreddit);
     this.update();
   },
+  onCreatePost: function (post) {
+    this.posts.push(post)
+    this.update();
+  },
   onUpVote: function (id) {
     this.posts[id].votes += 1;
     this.update();

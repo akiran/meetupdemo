@@ -11,4 +11,12 @@ a {
   color: blue;
 }
 
+label, input, button {
+  display: block;
+}
+input, select {
+  margin-bottom: 10px;
+  width: 80%;
+}
+
 
