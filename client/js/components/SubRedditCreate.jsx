@@ -17,7 +17,7 @@ var SubRedditCreate = React.createClass({
     return (
       <form action="" className="subreddit-form" onSubmit={this.submitHandler}>
         <input placeholder='Create new subreddit' value={this.state.subreddit} onChange={this.changeHandler}/>
-        <input type='submit' value='Create' />
+        <button type='submit'>Create</button>
       </form>
     );
   }
