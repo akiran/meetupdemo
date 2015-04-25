@@ -3,23 +3,35 @@ var Reflux = require('reflux');
 var Store = Reflux.createStore({
   listenables: require('./actions'),
   init: function () {
-    this.categories = ['reactjs', 'flux', 'javascript'];
+    this.subreddits = ['all', 'reactjs', 'flux', 'javascript'];
     this.posts = [
-      { content: "reactjs meetup", votes: 5, category: 'reactjs', type: 'text'}, 
-      { content: "flux example", votes: 10, category: 'flux', type: 'text'} 
+      { id: 0, title: "reactjs - awesome library for building user interfaces ", url: 'http://facebook.github.io/react',  votes: 5, subreddit: 'reactjs'}, 
+      { id: 1, title: "flux - new application architecture", url: 'http://facebook.github.io/flux', votes: 10, subreddit: 'flux'} 
     ]
   },
   getInitialState: function () {
-    return {categories: this.categories};
+    return {
+      subreddits: this.subreddits,
+      posts: this.posts
+    };
   },
   update: function () {
     this.trigger({
-      categories: this.categories
+      subreddits: this.subreddits,
+      posts: this.posts
     })
   },
-  onAddCategory: function (category) {
-    this.categories.push(category);
-    this.trigger(this.categories);
+  onAddCategory: function (subreddit) {
+    this.subreddits.push(subreddit);
+    this.update();
+  },
+  onUpVote: function (id) {
+    this.posts[id].votes += 1;
+    this.update();
+  },
+  onDownVote: function (id) {
+    this.posts[id].votes -= 1;
+    this.update();
   }
 });
 

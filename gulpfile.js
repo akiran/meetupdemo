@@ -17,7 +17,8 @@ gulp.task('clean', function () {
 });
 
 gulp.task('copy', function () {
-  
+  return gulp.src('bower_components/font-awesome/fonts/*')
+             .pipe(gulp.dest('build/fonts'))
 });
 
 gulp.task('sass', function () {

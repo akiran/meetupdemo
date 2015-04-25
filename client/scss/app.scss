@@ -1,10 +1,11 @@
 @import "normalize-scss/normalize";
 @import "jeet/scss/jeet/index";
+@import "font-awesome/scss/font-awesome";
 @import "./colors";
 @import "./typography";
 @import "./header";
 @import "./sidebar";
-@import "./feed";
+@import "./content";
 
 .container {
   @include center();

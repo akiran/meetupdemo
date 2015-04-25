@@ -1,7 +1,9 @@
 var Reflux = require('reflux');
 
 var Actions = Reflux.createActions([
-  'addCategory'
+  'addCategory',
+  'upVote',
+  'downVote',
 ]);
 
 module.exports = Actions;
