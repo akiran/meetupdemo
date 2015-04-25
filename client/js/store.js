@@ -21,7 +21,7 @@ var Store = Reflux.createStore({
       posts: this.posts
     })
   },
-  onAddCategory: function (subreddit) {
+  onAddSubReddit: function (subreddit) {
     this.subreddits.push(subreddit);
     this.update();
   },
