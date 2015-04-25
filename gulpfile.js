@@ -3,8 +3,6 @@ var gulp = require('gulp');
 var gutil = require('gulp-util');
 var sass = require('gulp-sass'); 
 var autoprefixer   = require('gulp-autoprefixer');
-var minifyCSS = require('gulp-minify-css');
-var gzip = require("gulp-gzip");
 var webpack = require("webpack");
 var runSequence = require('run-sequence');
 var del = require('del');
@@ -27,8 +25,6 @@ gulp.task('sass', function () {
               .pipe(autoprefixer({
                 browsers: ['last 2 versions', 'ie 10']
               }))
-              .pipe(argv.minify ? minifyCSS(): gutil.noop()) 
-              .pipe(argv.gzip ? gzip({ append: false }): gutil.noop()) 
               .pipe(gulp.dest('build/css'));
 });
 
